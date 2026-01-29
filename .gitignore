@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Project Specific - Large Binary Files (Excluding from Git)
+*.joblib
+*.parquet
+*.png
+*.tif
+
+# Results & Temporary Files
+*.csv
+*.txt
+.ipynb_checkpoints/
