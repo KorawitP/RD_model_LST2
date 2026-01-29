@@ -9,7 +9,7 @@
 
 2.  **การพัฒนาแบบจำลอง (Model Development):**
     - **Model 1:** Random Forest Regressor (สำหรับการวิเคราะห์ Feature Importance)
-    - **Model 2:** LSTM Deep Learning (สำหรับการวิเคราะห์รูปแบบอนุกรมเวลา)
+    - **Model 2:** Deep Neural Network (DNN) (สำหรับการวิเคราะห์ความสัมพันธ์ที่ซับซ้อน)
     - **Ensemble:** การรวมผลลัพธ์เพื่อเพิ่มความแม่นยำ
 
 3.  **การวิเคราะห์และอธิบายผล (Model Interpretation - XAI):**
@@ -25,13 +25,15 @@ graph TD
     A[Data Acquisition (GEE)] --> B[Preprocessing];
     B --> C{Model Training};
     C -->|Machine Learning| D[Random Forest];
-    C -->|Deep Learning| E[LSTM Model];
+    C -->|Deep Learning| E[DNN Model];
     D --> F[Ensemble Prediction];
     E --> F;
     F --> G[Evaluation (R2, RMSE)];
     D --> H[XAI Analysis (SHAP)];
     H --> I[Conclusion];
 ```
+
+
 # 3.2 การรวบรวมข้อมูล (Data Collection)
 
 การวิจัยนี้ใช้ฐานข้อมูลปฐมภูมิจาก **Google Earth Engine (GEE)** ซึ่งเป็นแพลตฟอร์มประมวลผลข้อมูลภูมิสารสนเทศระดับโลก โดยทำการรวบรวมข้อมูลครอบคลุมพื้นที่ **ประเทศไทย (Thailand)** ทั้งประเทศ ในช่วงเวลาตั้งแต่ **เดือนมกราคม ค.ศ. 2018 ถึง เดือนตุลาคม ค.ศ. 2025** รวมระยะเวลาทั้งสิ้น 94 เดือน
@@ -63,6 +65,8 @@ graph TD
     - **ปี (Year):** ตัวแปรระบุปีปฏิทิน (2018-2025) เพื่อจับแนวโน้มการเปลี่ยนแปลงระยะยาว
 
 **หมายเหตุ:** เดิมการศึกษานี้ได้รวบรวมข้อมูลประเภทการใช้ประโยชน์ที่ดิน (Land Use Land Cover: LULC) และความสูงจากระดับน้ำทะเล (Digital Elevation Model: DEM) ด้วย แต่ได้ถูกคัดออกในขั้นตอนการประมวลผลข้อมูลเนื่องจากปัญหาความแปรปรวนของข้อมูล (รายละเอียดในหัวข้อ 3.3)
+
+
 # 3.3 การเตรียมและประมวลผลข้อมูล (Data Preprocessing)
 
 เพื่อให้ข้อมูลมีความพร้อมและเหมาะสมสำหรับการฝึกสอนแบบจำลองการเรียนรู้ของเครื่อง ผู้วิจัยได้ดำเนินการเตรียมและประมวลผลข้อมูลตามขั้นตอนดังนี้
@@ -90,9 +94,11 @@ graph TD
 
 - **ชุดข้อมูลสำหรับฝึกสอน (Training Set):** ร้อยละ 70 (688,991 แถว) ใช้สำหรับสร้างและสอนแบบจำลอง
 - **ชุดข้อมูลสำหรับทดสอบ (Testing Set):** ร้อยละ 30 (295,283 แถว) ใช้สำหรับประเมินประสิทธิภาพของแบบจำลอง
+
+
 # 3.4 สถาปัตยกรรมแบบจำลอง (Model Architecture)
 
-การวิจัยนี้ใช้วิธีการผสมผสาน (Hybrid Approach) โดยพัฒนาแบบจำลอง 2 ประเภท เพื่อเปรียบเทียบประสิทธิภาพและดึงจุดเด่นของแต่ละเทคนิคมาใช้ ได้แก่ **Random Forest Regressor** (ตัวแทน Machine Learning) และ **Long Short-Term Memory (LSTM)** (ตัวแทน Deep Learning)
+การวิจัยนี้ใช้วิธีการผสมผสาน (Hybrid Approach) โดยพัฒนาแบบจำลอง 2 ประเภท เพื่อเปรียบเทียบประสิทธิภาพและดึงจุดเด่นของแต่ละเทคนิคมาใช้ ได้แก่ **Random Forest Regressor** (ตัวแทน Machine Learning) และ **Deep Neural Network (DNN)** (ตัวแทน Deep Learning)
 
 ### 3.4.1 แบบจำลอง Random Forest (Baseline Model)
 
@@ -106,29 +112,32 @@ graph TD
   - `max_features`: 'sqrt'
   - `random_state`: 42
 
-### 3.4.2 แบบจำลอง Deep Learning (LSTM Model)
+### 3.4.2 แบบจำลอง Deep Learning (Deep Neural Network: DNN)
 
-เพื่อปิดช่องว่างเรื่องการวิเคราะห์อนุกรมเวลา (Time-series Analysis) ผู้วิจัยได้พัฒนาแบบจำลอง **LSTM (Long Short-Term Memory)** ซึ่งเป็นโครงข่ายประสาทเทียมที่ออกแบบมาเพื่อจดจำรูปแบบในระยะยาว เหมาะสำหรับการทำนายอุณหภูมิที่มีการเปลี่ยนแปลงตามฤดูกาล
+เพื่อเพิ่มขีดความสามารถในการเรียนรู้ความสัมพันธ์ที่ซับซ้อนแบบไม่เป็นเชิงเส้น (Non-linear) ผู้วิจัยได้พัฒนาแบบจำลอง **Deep Neural Network (DNN)** หรือโครงข่ายประสาทเทียมแบบหลายชั้น (Multi-layer Perceptron: MLP) ซึ่งมีความสามารถในการสกัดคุณลักษณะ (Feature Extraction) ได้ลึกซึ้งกว่า Machine Learning ทั่วไป
 
 **โครงสร้างสถาปัตยกรรม (Network Architecture):**
 
-1.  **Input Layer**: รับข้อมูลเข้าในรูปแบบ Sequence (Time steps = 1, Features = 8)
-2.  **LSTM Layer 1**: จำนวน 64 Units พร้อม Activation function แบบ `tanh` และ Return Sequences = True
-3.  **Dropout Layer**: อัตรา 0.2 (เพื่อป้องกัน Overfitting)
-4.  **LSTM Layer 2**: จำนวน 32 Units
-5.  **Dense Layer (Fully Connected)**: จำนวน 16 Units (Activation = `relu`)
-6.  **Output Layer**: จำนวน 1 Unit (ทำนายค่า LST)
+1.  **Input Layer**: รับข้อมูลเข้า (Features = 8)
+2.  **Hidden Layer 1**: จำนวน 128 Neurons (Activation = `relu`)
+3.  **Hidden Layer 2**: จำนวน 64 Neurons (Activation = `relu`)
+4.  **Hidden Layer 3**: จำนวน 32 Neurons (Activation = `relu`)
+5.  **Output Layer**: จำนวน 1 Unit (ทำนายค่า LST)
 
 **การตั้งค่าการฝึกสอน (Training Configuration):**
 
-- **Optimizer**: Adam (Learning rate = 0.001)
+- **Algorithm**: Multi-layer Perceptron (MLPRegressor)
+- **Optimizer**: Adam (Adaptive Learning Rate)
 - **Loss Function**: Mean Squared Error (MSE)
 - **Batch Size**: 64
-- **Epochs**: 50 (พร้อม Early Stopping หากค่า Loss ไม่ลดลงใน 5 รอบ)
+- **Max Iterations**: 500 รอบ (Epochs)
+- **Early Stopping**: หยุดการฝึกสอนเมื่อค่า Loss ไม่ลดลงเพื่อป้องกัน Overfitting
 
 ### 3.4.3 การผสานโมเดล (Ensemble Strategy)
 
-นอกจากการเปรียบเทียบผลลัพธ์ของทั้งสองโมเดลแยกกันแล้ว งานวิจัยนี้ยังประยุกต์ใช้เทคนิค **Weighted Averaging Ensemble** โดยนำค่าพยากรณ์จาก RF และ LSTM มาหาค่าเฉลี่ยถ่วงน้ำหนักเพื่อสร้างผลลัพธ์สุดท้ายที่มีความเสถียรสูงสุด
+นอกจากการเปรียบเทียบผลลัพธ์ของทั้งสองโมเดลแยกกันแล้ว งานวิจัยนี้ยังประยุกต์ใช้เทคนิค **Weighted Averaging Ensemble** โดยนำค่าพยากรณ์จาก RF และ DNN มาหาค่าเฉลี่ยถ่วงน้ำหนักเพื่อสร้างผลลัพธ์สุดท้ายที่มีความเสถียรสูงสุด
+
+
 # 3.5 การประเมินประสิทธิภาพแบบจำลอง (Model Evaluation)
 
 เพื่อวัดประสิทธิผลและความแม่นยำของแบบจำลองในการทำนายอุณหภูมิพื้นผิวดิน (LST) ผู้วิจัยได้ใช้เกณฑ์การประเมินทางสถิติและการตรวจสอบความถูกต้อง (Validation) ดังต่อไปนี้
@@ -146,6 +155,8 @@ graph TD
 ### 3.5.2 การตรวจสอบความถูกต้อง (Validation Methods)
 
 นอกจากการทดสอบด้วยชุดข้อมูลทดสอบ (Testing Set) แล้ว ผู้วิจัยยังใช้วิธี **K-Fold Cross-Validation** (โดยกำหนดค่า k=5) ในการตรวจสอบความเสถียรของแบบจำลอง ข้อมูลฝึกสอนจะถูกแบ่งออกเป็น 5 ส่วนย่อย และทำการหมุนเวียนฝึกสอนและทดสอบจนครบทุกส่วน เพื่อให้มั่นใจว่าประสิทธิภาพของแบบจำลองไม่ได้เกิดจากความบังเอิญในการเลือกชุดข้อมูล (Selection Bias) และเพื่อยืนยันว่าแบบจำลองสามารถนำไปใช้กับข้อมูลชุดใหม่ได้อย่างมีประสิทธิภาพ (Generalization)
+
+
 # 3.6 การแปลผลและอธิบายแบบจำลอง (Model Interpretation)
 
 หนึ่งในความท้าทายสำคัญของการใช้แบบจำลองการเรียนรู้ของเครื่องขั้นสูง (Advanced Machine Learning) และการเรียนรู้เชิงลึก (Deep Learning) คือลักษณะความเป็น "กล่องดำ" (Black-box) ซึ่งยากต่อการอธิบายกระบวนการตัดสินใจ เพื่อให้ผลการวิจัยมีความโปร่งใสและสามารถนำไปใช้อ้างอิงทางวิทยาศาสตร์ได้ งานวิจัยนี้จึงประยุกต์ใช้เทคนิค **Explainable AI (XAI)** เพื่อวิเคราะห์อิทธิพลของตัวแปรต่างๆ ที่มีต่ออุณหภูมิพื้นผิวดิน
