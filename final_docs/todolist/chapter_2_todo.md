@@ -29,31 +29,34 @@
 
 ### 2.4 Machine Learning และ Deep Learning สำหรับการวิเคราะห์สภาพภูมิอากาศ
 
-- [ ] **Traditional ML**: Random Forest (RF), Gradient Boosting (XGBoost, CatBoost)
-- [ ] **Deep Learning**: LSTM, BiLSTM (สำหรับ Time-series), CNN-LSTM (สำหรับ Spatiotemporal), Transformers
-- [ ] **Ensemble Learning**: เทคนิค Stacking และ Blending เพื่อเพิ่มความแม่นยำ
+- [x] **Traditional ML**: Random Forest (RF), Gradient Boosting (XGBoost, CatBoost)
+- [x] **Deep Learning**: LSTM, BiLSTM (สำหรับ Time-series), CNN-LSTM (สำหรับ Spatiotemporal)
+- [x] **Ensemble Learning**: เทคนิค Stacking และ Blending เพื่อเพิ่มความแม่นยำ
 
-### 2.5 Explainable AI (XAI) **(หัวข้อใหม่ - ต้องเพิ่ม)**
+### 2.5 Explainable AI (XAI)
 
-_หมายเหตุ: หัวข้อนี้ขาดหายไปในไฟล์หลัก แต่มีความสำคัญมากต่องานวิจัยนี้_
-
-- [ ] **ความจำเป็นของ XAI**: การแกะกล่องดำ (Black-box) ของโมเดล AI ในงานวิทยาศาสตร์
-- [ ] **SHAP (SHapley Additive exPlanations)**: ทฤษฎีและการแปลผล (Global vs Local interpretation)
-- [ ] **Permutation Feature Importance**: การวัดความสำคัญของตัวแปร (GHGs vs LST)
+- [x] **ความจำเป็นของ XAI**: การแกะกล่องดำ (Black-box) ของโมเดล AI ในงานวิทยาศาสตร์
+- [x] **SHAP (SHapley Additive exPlanations)**: ทฤษฎีและการแปลผล (Global vs Local interpretation)
+- [x] **Permutation Feature Importance**: การวัดความสำคัญของตัวแปร (GHGs vs LST)
 
 ### 2.6 งานวิจัยที่เกี่ยวข้องและช่องว่างทางวิชาการ (Related Research & Research Gaps)
 
-- [ ] **งานวิจัยในเอเชียตะวันออกเฉียงใต้**: สรุปงานที่ศึกษา LST และ GHGs ในบริบทใกล้เคียง
-- [ ] **สรุป Research Gap (ปรับปรุงใหม่)**:
-  - [ ] เน้นการขาดการวิเคราะห์ "ความสัมพันธ์เชิงพื้นที่" โดยตรง (Concentration vs LST)
-  - [ ] เน้นการขาดการประยุกต์ใช้ "XAI" เพื่ออธิบายปรากฏการณ์ในบริบทไทย
+- [x] **งานวิจัยในเอเชียตะวันออกเฉียงใต้**: สรุปงานที่ศึกษา LST และ GHGs ในบริบทใกล้เคียง
+- [x] **สรุป Research Gap (ปรับปรุงใหม่)**:
+  - [x] เน้นการขาดการวิเคราะห์ "ความสัมพันธ์เชิงพื้นที่" โดยตรง (Concentration vs LST)
+  - [x] เน้นการขาดการประยุกต์ใช้ "XAI" เพื่ออธิบายปรากฏการณ์ในบริบทไทย
+  - [x] เน้นเรื่อง Spatiotemporal Gap Filling สำหรับข้อมูลดาวเทียมในเขตร้อน
 
 ---
 
 ## 2. ขั้นตอนการดำเนินการ (Action Plan)
 
 1.  [x] **สร้างไฟล์ `final_docs/chapter_2/chapter_2_combined.md`**
-2.  [x] **Migration 1 (Base Content)**: ย้ายเนื้อหา 2.1, 2.3 จากไฟล์หลัก (หรือเขียนใหม่) เสร็จสิ้น
+2.  [x] **Migration 1 (Base Content)**: ย้ายเนื้อหา 2.1, 2.3 จากไฟล์หลัก เสร็จสิ้น
 3.  [x] **Migration 2 (Enhancement)**: แทรกเนื้อหา Gap Filling และรายละเอียด GHG บริบทไทยแล้ว
-4.  [ ] **Migration 3 (New Logic)**: เขียนหัวข้อ 2.4 (ML/DL) และ 2.5 (XAI) ใหม่
-5.  [ ] **Final Polish**: ปรับปรุงบทสรุป Research Gap และตรวจสอบ Citation ให้อยู่ในฟอร์แมตเดียวกัน
+4.  [x] **Migration 3 (New Logic)**: เขียนหัวข้อ 2.4 (ML/DL) และ 2.5 (XAI) ใหม่ เสร็จสิ้น
+5.  [x] **Final Polish**: ตรวจสอบ Citation ทั้งหมด (ใช้ปีอ้างอิง < 2025) และผ่านการ Review โดย AI Skill แล้ว
+
+---
+
+**สถานะปัจจุบัน:** ✅ **บทที่ 2 เสร็จสมบูรณ์ (100%)**
