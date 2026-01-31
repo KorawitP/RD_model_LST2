@@ -271,28 +271,13 @@ SHAP เป็นวิธีการที่พัฒนาขึ้นจา
     - ประเมินด้วยค่า $R^2$, RMSE และ Cross-Validation
     - จัดทำแผนที่แสดงการกระจายตัวของอุณหภูมิและค่าความคลาดเคลื่อน (Residual Map)
 
-```mermaid
-graph TD
-    A[Data Acquisition (GEE)] --> B[Preprocessing];
-    B --> C{Model Training};
-    C -->|Machine Learning| D[Random Forest];
-    C -->|Deep Learning| E[DNN Model];
-    D --> F[Ensemble Prediction];
-    E --> F;
-    F --> G[Evaluation (R2, RMSE)];
-    D --> H[XAI Analysis (SHAP)];
-    H --> I[Conclusion];
-```
+![ภาพรวมของวิธีการดำเนินงานวิจัย (Workflow Overview)](./images/mermaid-diagram-2026-01-31-175150.png)
 
 # 3.2 การรวบรวมข้อมูล (Data Collection)
 
 การวิจัยนี้ใช้ฐานข้อมูลปฐมภูมิจาก **Google Earth Engine (GEE)** ซึ่งเป็นแพลตฟอร์มประมวลผลข้อมูลภูมิสารสนเทศระดับโลก โดยทำการรวบรวมข้อมูลครอบคลุมพื้นที่ **ประเทศไทย (Thailand)** ทั้งประเทศ ในช่วงเวลาตั้งแต่ **เดือนมกราคม ค.ศ. 2018 ถึง เดือนตุลาคม ค.ศ. 2025** รวมระยะเวลาทั้งสิ้น 94 เดือน
 
-<p align="center">
-  <img src="../images/Study_Area_Map.png" alt="Study Area Map of Thailand" width="600">
-  <br>
-  <b>ภาพที่ 3.1:</b> ขอบเขตพื้นที่ศึกษาประเทศไทยและรายละเอียดการแบ่งเขตจังหวัด
-</p>
+![**ภาพที่ 3.1:** ขอบเขตพื้นที่ศึกษาประเทศไทยและรายละเอียดการแบ่งเขตจังหวัด](./images/ภาพที่ 3.1 แผนที่ขอบเขตพื้นที่ศึกษาและการแบ่งเขตจังหวัดประเทศไทย.png)
 
 ข้อมูลที่รวบรวมประกอบด้วยตัวแปรทั้งหมด 2 ประเภทหลัก ได้แก่
 
