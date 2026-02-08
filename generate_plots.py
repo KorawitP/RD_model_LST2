@@ -11,13 +11,13 @@ plt.rcParams['font.family'] = 'Tahoma' # หรือ sans-serif ถ้าไม
 plt.rcParams['figure.figsize'] = (10, 6)
 
 # สร้างโฟลเดอร์เก็บกราฟ
-output_dir = "final_docs/images"
+output_dir = "outputs/plots"
 os.makedirs(output_dir, exist_ok=True)
 
 # 1. โหลดข้อมูลตัวอย่าง (sample) เพื่อความเร็ว
 print("Loading data for plots...")
-if os.path.exists('df_final_processed.parquet'):
-    df = pd.read_parquet('df_final_processed.parquet')
+if os.path.exists('data/df_final_processed.parquet'):
+    df = pd.read_parquet('data/df_final_processed.parquet')
     df_sample = df.sample(n=10000, random_state=42) # สุ่มมา 10,000 จุดพอ
 else:
     print("❌ Data not found!")

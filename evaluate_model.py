@@ -9,7 +9,7 @@ from sklearn.impute import SimpleImputer
 print("\n--- กำลังโหลดข้อมูลและโมเดล ---")
 
 # 1. โหลดข้อมูลจากไฟล์ parquet
-df_eval = pd.read_parquet('df_final_processed.parquet')
+df_eval = pd.read_parquet('data/df_final_processed.parquet')
 print(f"โหลดข้อมูลสำเร็จ! จำนวนแถว: {len(df_eval)}")
 
 # 2. เตรียม features และ target
@@ -35,14 +35,14 @@ print(f"แบ่งข้อมูล - Train: {len(X_train)} แถว, Test: 
 print("กำลังโหลดโมเดล (อาจใช้เวลาสักครู่สำหรับไฟล์ขนาดใหญ่)...")
 try:
     # ใช้ mmap_mode='r' เพื่ออ่านไฟล์ขนาดใหญ่
-    model = joblib.load('random_forest_model.joblib', mmap_mode='r')
+    model = joblib.load('models/random_forest_model.joblib', mmap_mode='r')
     print("โหลดโมเดลสำเร็จ!")
 except Exception as e:
     print(f"\nเกิดข้อผิดพลาดในการโหลดโมเดล: {e}")
     print("\nกำลังลองวิธีอื่น...")
     # ลองโหลดแบบปกติ
     import pickle
-    with open('random_forest_model.joblib', 'rb') as f:
+    with open('models/random_forest_model.joblib', 'rb') as f:
         model = pickle.load(f)
     print("โหลดโมเดลสำเร็จด้วยวิธีทางเลือก!")
 

@@ -4,7 +4,7 @@ import numpy as np
 
 # โหลดโมเดล
 print("Loading model...")
-rf_model = joblib.load('model_rf.joblib')
+rf_model = joblib.load('models/model_rf.joblib')
 
 # ชื่อ Features (ต้องเรียงให้ตรงกับตอนเทรน)
 # features = ['CH4', 'NO2', 'CO', 'NDVI', 'Albedo', 'Solar_Radiation', 'month', 'year']

@@ -10,7 +10,7 @@ print("="*60)
 
 # 1. โหลดข้อมูล
 print("\n[1/3] กำลังโหลดข้อมูล...")
-df = pd.read_parquet('df_final_processed.parquet')
+df = pd.read_parquet('data/df_final_processed.parquet')
 print(f"✓ โหลดข้อมูลสำเร็จ: {len(df):,} แถว")
 
 # 2. เลือกตัวแปรที่ใช้ในการวิเคราะห์
@@ -59,7 +59,7 @@ plt.yticks(rotation=0)
 plt.tight_layout()
 
 # บันทึกรูปภาพ
-output_file = 'correlation_heatmap.png'
+output_file = 'outputs/plots/correlation_heatmap.png'
 plt.savefig(output_file, dpi=300, bbox_inches='tight')
 print(f"✓ บันทึกฮีทแมพที่: {output_file}")
 

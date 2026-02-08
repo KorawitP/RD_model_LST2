@@ -100,7 +100,7 @@ with rasterio.open(file_path) as src:
     plt.tight_layout()
     
     # บันทึกรูปภาพ
-    output_file = f'visualization_{selected_file.replace(".tif", "")}.png'
+    output_file = f'outputs/plots/visualization_{selected_file.replace(".tif", "")}.png'
     print(f"\n[3/3] กำลังบันทึกรูปภาพ...")
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
     print(f"✓ บันทึกรูปภาพที่: {output_file}")

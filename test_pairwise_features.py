@@ -15,7 +15,7 @@ print("="*80)
 # 1. โหลดข้อมูล
 print("\n[1/4] กำลังโหลดข้อมูล...")
 start_time = time.time()
-df = pd.read_parquet('df_final_processed.parquet')
+df = pd.read_parquet('data/df_final_processed.parquet')
 print(f"✓ โหลดข้อมูลสำเร็จ: {len(df):,} แถว ({time.time()-start_time:.2f} วินาที)")
 
 # 2. เตรียมรายชื่อ features ทั้งหมด
@@ -201,7 +201,7 @@ else:
 # บันทึกผลลัพธ์
 print("\n" + "="*80)
 print("กำลังบันทึกผลลัพธ์...")
-df_all.to_csv('pairwise_test_results.csv', index=False)
+df_all.to_csv('outputs/logs/pairwise_test_results.csv', index=False)
 print("✓ บันทึกผลลัพธ์ที่: pairwise_test_results.csv")
 
 print("\n" + "="*80)

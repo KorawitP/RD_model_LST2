@@ -14,7 +14,7 @@ print("="*80)
 # 1. โหลดข้อมูล
 print("\n[1/3] กำลังโหลดข้อมูล...")
 start_time = time.time()
-df = pd.read_parquet('df_final_processed.parquet')
+df = pd.read_parquet('data/df_final_processed.parquet')
 print(f"✓ โหลดข้อมูลสำเร็จ: {len(df):,} แถว ({time.time()-start_time:.2f} วินาที)")
 
 # 2. เตรียม features และ target
@@ -205,7 +205,7 @@ else:
 # 9. บันทึกผลลัพธ์
 print("\n" + "="*80)
 print("กำลังบันทึกผลลัพธ์...")
-df_results.to_csv('model_stability_test_results.csv', index=False)
+df_results.to_csv('outputs/logs/model_stability_test_results.csv', index=False)
 print("✓ บันทึกผลลัพธ์ที่: model_stability_test_results.csv")
 
 print("\n" + "="*80)

@@ -8,7 +8,7 @@ print("="*70)
 
 # 1. โหลดข้อมูลที่ใช้เทรนโมเดล
 print("\n[1/3] กำลังโหลดข้อมูล...")
-df = pd.read_parquet('df_final_processed.parquet')
+df = pd.read_parquet('data/df_final_processed.parquet')
 print(f"✓ โหลดข้อมูลสำเร็จ: {len(df):,} แถว")
 
 # 2. ตรวจสอบ columns ที่มี

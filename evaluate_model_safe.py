@@ -13,7 +13,7 @@ print("\n--- กำลังโหลดข้อมูลและโมเด�
 
 # 1. โหลดข้อมูลจากไฟล์ parquet
 print("กำลังโหลดข้อมูล...")
-df_eval = pd.read_parquet('df_final_processed.parquet')
+df_eval = pd.read_parquet('data/df_final_processed.parquet')
 print(f"โหลดข้อมูลสำเร็จ! จำนวนแถว: {len(df_eval):,}")
 
 # 2. เตรียม features และ target
@@ -49,8 +49,8 @@ print("โปรดรอสักครู่...")
 
 model = None
 methods = [
-    ("joblib.load ปกติ", lambda: joblib.load('random_forest_model.joblib')),
-    ("joblib.load แบบ mmap", lambda: joblib.load('random_forest_model.joblib', mmap_mode='r')),
+    ("joblib.load ปกติ", lambda: joblib.load('models/random_forest_model.joblib')),
+    ("joblib.load แบบ mmap", lambda: joblib.load('models/random_forest_model.joblib', mmap_mode='r')),
 ]
 
 for method_name, load_func in methods:

@@ -5,7 +5,7 @@ import sys
 print("=== ตรวจสอบไฟล์โมเดล ===\n")
 
 # ตรวจสอบขนาดไฟล์
-model_path = 'random_forest_model.joblib'
+model_path = 'models/random_forest_model.joblib'
 if os.path.exists(model_path):
     size = os.path.getsize(model_path)
     size_gb = size / (1024**3)
