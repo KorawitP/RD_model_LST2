@@ -25,7 +25,7 @@
   - _(Review Paper ยอดฮิต อธิบายคุณสมบัติของ Machine Learning (RF, SVM, ANN) เทียบกับขนาดข้อมูล โดยยืนยันว่า Random Forest ทนทาน (Robust) ต่อขนาดตัวอย่าง และทำงานได้ดีโดยไม่ต้องใช้ประชากรข้อมูลทั้งหมด)_
 - **Thanh Noi, P., & Kappas, M. (2018).** Comparison of random forest, k-nearest neighbor, and support vector machine classifiers for land cover classification using Sentinel-2 imagery. _Sensors_, 18(1), 18. [[DOI: 10.3390/s18010018]](https://doi.org/10.3390/s18010018)
   - _(งานวิจัยนี้ทดสอบขนาดตัวอย่าง (Sample Size) ตั้งแต่หลักร้อยไปจนถึงหลายหมื่น และพบว่าสำหรับ Random Forest ประสิทธิภาพจะเพิ่มสูงขึ้นอย่างชัดเจนจนมาถึงระดับประมาณ 10,000 - 20,000 พิกเซล หลังจากนั้นค่าความแม่นยำจะคงที่ (Plateau) และแทบไม่มีการเปลี่ยนแปลงแม้จะเพิ่มขนาดตัวอย่างให้ใหญ่กว่านี้ การใช้ 30,000 จุดจึงครอบคลุมเกินพอ)_
-- **Colditz, R. R. (2015).** An evaluation of different training sample allocation schemes for discrete and continuous land cover classification using decision tree-based algorithms. _Remote Sensing_, 7(5), 5620-5645. [[DOI: 10.3390/rs70505620]](https://doi.org/10.3390/rs70505620)
+- **Colditz, R. R. (2015).** An evaluation of different training sample allocation schemes for discrete and continuous land cover classification using decision tree-based algorithms. _Remote Sensing_, 7(8), 9655-9681. [[DOI: 10.3390/rs70809655]](https://doi.org/10.3390/rs70809655)
   - _(ยืนยันว่าการกระจายตัวอย่างให้ครอบคลุม (Distribution representativeness) สำคัญกว่าขนาดตัวอย่างที่ใหญ่เกินความจำเป็น เมื่อมีตัวอย่างในระดับหลักหมื่นจุด ถือเป็นสัดส่วนที่อธิบายความหลากหลายของข้อมูลเชิงพื้นที่ระดับภูมิภาคได้เพียงพอแล้ว)_
 
 ## 3. ประเด็นเรื่อง: ความสมดุลระหว่าง Computational Efficiency และ Accuracy
